@@ -1,5 +1,7 @@
 package serialization;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -23,7 +25,28 @@ public class SerializableTest extends Assert {
             assertEquals(task.name, taskCopy.name);
             assertEquals(task.priority, taskCopy.priority);
         }
+    }
 
+    /**
+     * JSON - текстовый формат обмена данными, основанный на JavaScript
+     * Сериалиазация и десериализация объекта из JSON формата
+     */
+    @Test
+    public void testJsonSaveLoad() throws Exception {
+        Task task = new Task();
+        task.name = "Изучить сериализацию в JSON";
+        task.priority = 4;
+
+        // Сохраняем в JSON
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        String JSON = gson.toJson(task);
+        System.out.println(JSON);
+
+        // Обратно получаем из JSON
+        Task taskCopy = gson.fromJson(JSON, Task.class);
+        assertEquals(task.name, taskCopy.name);
+        assertEquals(task.priority, taskCopy.priority);
     }
 
     // Если убрать static - нельзя будет сериализовать
