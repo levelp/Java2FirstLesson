@@ -1,16 +1,23 @@
 package serialization;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.*;
 
+// ВАРИАНТЫ СЕРИАЛИЗАЦИИ:
+// ======================
+// 1. Бинарный формат
+// 2. XML
+// 3. JSON (gson)
 public class SerializableTest extends Assert {
 
+    /**
+     * Сохраняем и загружаем в бинарном формате
+     */
     @Test
-    public void testSimpleSaveLoad() throws Exception {
+    public void testBinarySaveLoad() throws Exception {
         Task task = new Task();
         task.name = "Изучить сериализацию в бинарный формат";
         task.priority = 4;
@@ -63,9 +70,8 @@ public class SerializableTest extends Assert {
         task.priority = 4;
 
         // Сохраняем в JSON
-        GsonBuilder builder = new GsonBuilder();
-
-        Gson gson = builder.create();
+        //GsonBuilder builder = new GsonBuilder();
+        Gson gson = new Gson(); //builder.create();
         String JSON = gson.toJson(task);
         System.out.println(JSON);
 
