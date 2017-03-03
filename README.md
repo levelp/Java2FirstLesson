@@ -34,14 +34,16 @@ JUnit тесты
 
 Google JSON: https://github.com/google/gson
 
-1. Помечаем класс аннотацией ```Serializable```
+Помечаем класс аннотацией ```Serializable```
+--------------------------------------------
 ```java
 public class Task implements Serializable {
    public String name;
    public int priority;
 }
 ```
-2. Сохраняем в бинарном формате:
+Сохраняем в бинарном формате:
+-----------------------------
 ```java
 try (ObjectOutputStream s =
     new ObjectOutputStream(
@@ -49,7 +51,8 @@ try (ObjectOutputStream s =
            s.writeObject(task);
 }
 ```
-3. Загружаем в бинарном формате:
+Загружаем в бинарном формате:
+-----------------------------
 ```java
 try (ObjectInputStream s =
     new ObjectInputStream(
