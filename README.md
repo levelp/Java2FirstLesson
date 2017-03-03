@@ -60,3 +60,6 @@ try (ObjectInputStream s =
            task = (Task) s.readObject();
 }
 ```
+
+* [XML-формат](src/test/java/serialization/B_XMLSerializationTest.java)
+* [JSON-формат](src/test/java/serialization/C_JSONSerializationTest.java)
