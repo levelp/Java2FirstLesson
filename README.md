@@ -28,6 +28,8 @@ JUnit тесты
 * Условия успешной упаковки и распаковки объектов
 * Сериализация в структурные форматы на примере Json
 
+Сериализация = сохранение, Десериализация = загрузка
+
 Подробнее: https://docs.oracle.com/javase/8/docs/technotes/guides/serialization/
 
 Google JSON: https://github.com/google/gson
